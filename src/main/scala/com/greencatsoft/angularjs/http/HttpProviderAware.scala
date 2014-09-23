@@ -13,7 +13,7 @@ trait HttpProviderAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(HttpProvider.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(HttpProvider.Name) ensuring (_ >= 0)
     this.httpProvider = args(index).asInstanceOf[HttpProvider]
   }
 }

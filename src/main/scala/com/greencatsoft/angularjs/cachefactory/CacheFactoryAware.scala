@@ -13,7 +13,7 @@ trait CacheFactoryAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(CacheFactory.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(CacheFactory.Name) ensuring (_ >= 0)
     this.cacheFactory = args(index).asInstanceOf[CacheFactory]
   }
 }

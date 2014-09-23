@@ -13,7 +13,7 @@ trait QAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Q.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Q.Name) ensuring (_ >= 0)
     this.q = args(index).asInstanceOf[Q]
   }
 }

@@ -13,7 +13,7 @@ trait LocationAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Location.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Location.Name) ensuring (_ >= 0)
     this.location = args(index).asInstanceOf[Location]
   }
 }

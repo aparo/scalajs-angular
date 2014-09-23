@@ -15,7 +15,7 @@ trait RootScopeAware extends InjectionTarget with Scoped {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(RootScope.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(RootScope.Name) ensuring (_ >= 0)
     this.rootScope = args(index).asInstanceOf[ScopeType]
   }
 }

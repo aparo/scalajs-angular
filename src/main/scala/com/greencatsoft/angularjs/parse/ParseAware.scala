@@ -13,7 +13,7 @@ trait ParseAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Parse.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Parse.Name) ensuring (_ >= 0)
     this.parse = args(index).asInstanceOf[Parse]
   }
 }

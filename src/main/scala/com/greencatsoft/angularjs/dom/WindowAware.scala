@@ -13,7 +13,7 @@ trait WindowAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Window.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Window.Name) ensuring (_ >= 0)
     this.window = args(index).asInstanceOf[Window]
   }
 }

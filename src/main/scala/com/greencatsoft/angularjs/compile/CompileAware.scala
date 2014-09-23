@@ -13,7 +13,7 @@ trait CompileAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Compile.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Compile.Name) ensuring (_ >= 0)
     this.compile = args(index).asInstanceOf[Compile]
   }
 }

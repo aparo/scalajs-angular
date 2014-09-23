@@ -13,7 +13,7 @@ trait AnimateAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Animate.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Animate.Name) ensuring (_ >= 0)
     this.animate = args(index).asInstanceOf[Animate]
   }
 }

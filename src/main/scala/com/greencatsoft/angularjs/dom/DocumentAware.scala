@@ -13,7 +13,7 @@ trait DocumentAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Document.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Document.Name) ensuring (_ >= 0)
     this.document = args(index).asInstanceOf[Document]
   }
 }

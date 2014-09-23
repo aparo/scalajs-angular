@@ -12,7 +12,7 @@ trait IntervalAware extends InjectionTarget {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Interval.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Interval.Name) ensuring (_ >= 0)
     this.interval = args(index).asInstanceOf[Interval]
   }
 }

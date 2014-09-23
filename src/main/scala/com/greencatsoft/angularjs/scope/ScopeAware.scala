@@ -13,7 +13,7 @@ trait ScopeAware extends InjectionTarget with Scoped {
   override def inject(args: Seq[js.Any]) {
     super.inject(args)
 
-    var index = dependencies.indexOf(Scope.Name) ensuring (_ >= 0)
+    val index = dependencies.indexOf(Scope.Name) ensuring (_ >= 0)
 
     val scope = args(index).asInstanceOf[ScopeType]
     scope.dynamic.controller = this.asInstanceOf[js.Object]
